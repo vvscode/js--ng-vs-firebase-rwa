@@ -1,0 +1,18 @@
+{
+  "name": "js--ng-vs-firebase-rwa",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Vasil Vanchuk <v.vanchuk@tut.by>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/vvscode/js--ng-vs-firebase-rwa",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
