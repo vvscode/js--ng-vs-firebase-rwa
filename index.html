@@ -17,8 +17,8 @@
         </div>
     </md-toolbar>
     <md-content class="md-padding" layout="row" layout-wrap>
-        <md-card flex="33" ng-repeat="item in rwCtrl.items">
-            <img src="{{ item.img }}" alt="{{ item.title }}" />
+        <md-card flex="30" ng-repeat="item in rwCtrl.items">
+            <img ng-src="{{ item.img }}" alt="{{ item.title }}" />
             <md-card-content>
                 <div class="rw-info">
                     <h2 class="md-title">{{ item.title }}</h2>
