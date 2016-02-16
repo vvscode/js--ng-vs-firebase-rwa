@@ -21,8 +21,9 @@
             <img ng-src="{{ item.img }}" alt="{{ item.title }}" />
             <md-card-content>
                 <div class="rw-info">
-                    <h2 class="md-title">{{ item.title }}</h2>
-                    <h3>{{ item.price }}</h3>
+                    <h2 class="md-title">{{ item.title | uppercase }}</h2>
+                    <h2>{{ item.posted | date:'longDate' }}</h2>
+                    <h3>{{ item.price | currency }}</h3>
                     <p>{{ item.description }}</p>
                 </div>
             </md-card-content>
