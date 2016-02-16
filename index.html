@@ -3,11 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>RealWorld NG</title>
+    <link rel="stylesheet" href="node_modules/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="node_modules/mdi/css/materialdesignicons.css" />
+    <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body ng-app="rw" ng-controller="RwCtrl as rwCtrl">
-    <h1 ng-bind="rwCtrl.message"></h1>
-    <h1>{{ rwCtrl.message }}</h1>
-    <hello-world></hello-world>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <p><strong>RW</strong></p>
+            <md-button>
+                <md-icon class="mdi mdi-plus-circle"></md-icon>New Item
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-content class="md-padding" layout="row" layout-wrap>
+        <md-card flex="33" ng-repeat="item in rwCtrl.items">
+            <img src="{{ item.img }}" alt="{{ item.title }}" />
+            <md-card-content>
+                <div class="rw-info">
+                    <h2 class="md-title">{{ item.title }}</h2>
+                    <h3>{{ item.price }}</h3>
+                    <p>{{ item.description }}</p>
+                </div>
+            </md-card-content>
+        </md-card>
+    </md-content>
+
     <script src="node_modules/angular/angular.js"></script>
     <script src="node_modules/angular-animate/angular-animate.js"></script>
     <script src="node_modules/angular-aria/angular-aria.js"></script>
