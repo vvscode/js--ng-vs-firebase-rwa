@@ -3,7 +3,7 @@
 
   angular
     .module('rw')
-    .controller('RwCtrl', function($http) {
-      $http.get('/data/rw.json').then((data) => (this.items = data.data));
+    .controller('RwCtrl', function(rwFactory) {
+      rwFactory.getItems().then((data) => (this.items = data.data));
     });
 })();
