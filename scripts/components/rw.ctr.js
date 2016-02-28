@@ -12,7 +12,9 @@
         this.item = item;
         this.openSidebar();
       };
-      this.removeItem = (item) => { }
+      this.removeItem = (itemToRemove) => {
+        this.items = this.items.filter((item) => item !== itemToRemove);
+      };
       this.saveItem = (item) => {
         this.items.push(item);
         this.item = {};
