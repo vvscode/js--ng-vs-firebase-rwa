@@ -80,8 +80,8 @@
             <div class="rw-admin" ng-if="showAdmin">
                 <h3>Admin</h3>
                 <div layout="row">
-                    <md-button class="md-primary">Edit</md-button>
-                    <md-button class="md-warn">Delete</md-button>
+                    <md-button ng-click="rwCtrl.editItem(item)" class="md-primary">Edit</md-button>
+                    <md-button ng-click="rwCtrl.removeItem(item)" class="md-warn">Delete</md-button>
                 </div>
             </div>
         </md-card-content>
