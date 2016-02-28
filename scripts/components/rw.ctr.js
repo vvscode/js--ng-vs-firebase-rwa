@@ -8,5 +8,11 @@
 
       this.openSidebar = () => $mdSidenav('left').open();
       this.closeSidebar = () => $mdSidenav('left').close();
+      this.saveItem = (item) => {
+        this.items.push(item);
+        this.item = {};
+        this.closeSidebar();
+      };
+      this.saveEdit = () => {};
     });
 })();
