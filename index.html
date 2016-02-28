@@ -48,7 +48,7 @@
 </md-sidenav>
 
 <md-content class="md-padding" layout="row" layout-wrap>
-    <md-card flex="30" ng-repeat="item in rwCtrl.items">
+    <md-card flex="30" ng-repeat="item in rwCtrl.items track by $index">
         <img ng-src="{{ item.img }}" alt="{{ item.title }}"/>
         <md-card-content>
             <div class="rw-info" ng-show="!showContact">

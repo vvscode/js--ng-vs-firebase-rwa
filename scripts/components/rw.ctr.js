@@ -8,7 +8,10 @@
 
       this.openSidebar = () => $mdSidenav('left').open();
       this.closeSidebar = () => $mdSidenav('left').close();
-      this.editItem = (item) => { };
+      this.editItem = (item) => {
+        this.item = item;
+        this.openSidebar();
+      };
       this.removeItem = (item) => { }
       this.saveItem = (item) => {
         this.items.push(item);
@@ -21,6 +24,15 @@
             .hideDelay(3000)
         );
       };
-      this.saveEdit = () => {};
+      this.saveEdit = () => {
+        this.item = {};
+        this.closeSidebar();
+        $mdToast.show(
+          $mdToast.simple()
+            .content('Item saved')
+            .position('top, right')
+            .hideDelay(3000)
+        );
+      };
     });
 })();
