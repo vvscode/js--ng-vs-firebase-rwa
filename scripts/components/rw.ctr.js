@@ -4,7 +4,14 @@
   angular
     .module('rw')
     .controller('RwCtrl', function(rwFactory, $mdSidenav, $mdToast, $mdDialog) {
-      rwFactory.getItems().then((data) => (this.items = data.data));
+      function getCategories(items) {
+        return _.uniq(_.flatten(items.map((item) => item.categories)));
+      }
+
+      rwFactory.getItems().then((data) => {
+        this.items = data.data || [];
+        this.categories = getCategories(this.items);
+      });
 
       this.openSidebar = () => $mdSidenav('left').open();
       this.closeSidebar = () => $mdSidenav('left').close();
@@ -44,5 +51,11 @@
             .hideDelay(3000)
         );
       };
+
+      this.clearFilters = () => {
+        this.category = '';
+        this.searchTerm = '';
+        this.showFilters = false;
+      }
     });
 })();
