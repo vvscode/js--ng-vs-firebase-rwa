@@ -70,7 +70,7 @@
 <md-content class="md-padding" layout="row" layout-wrap>
     <md-card flex="30" ng-repeat="item in rwCtrl.items |
                                     filter: rwCtrl.searchTerm |
-                                    filter: rwCtrl.category  track by $index">
+                                    filter: rwCtrl.category  track by $index" class="item">
         <img ng-src="{{ item.img }}" alt="{{ item.title }}"/>
         <md-card-content>
             <div class="rw-info" ng-show="!showContact">
