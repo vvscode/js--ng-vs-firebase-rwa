@@ -1,12 +1,11 @@
 angular
-  .module('rw', ['ngMaterial'])
-  .config(function($mdThemingProvider) {
+  .module('rw', ['ngMaterial', 'ui.router'])
+  .config(function($mdThemingProvider, $stateProvider) {
 
     $mdThemingProvider
       .theme('default')
       .primaryPalette('teal')
       .accentPalette('orange');
-
   })
   .directive('helloWorld', function() {
     return {
