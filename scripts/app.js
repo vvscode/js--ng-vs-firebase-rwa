@@ -6,6 +6,13 @@ angular
       .theme('default')
       .primaryPalette('teal')
       .accentPalette('orange');
+
+    $stateProvider
+      .state('items', {
+        url: '/items',
+        templateUrl: 'components/items/items.tpl.html',
+        controller: 'RwCtrl as rwCtrl',
+      })
   })
   .directive('helloWorld', function() {
     return {
