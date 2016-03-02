@@ -14,7 +14,6 @@
       });
 
       this.openSidebar = () => $state.go('items.new');
-      this.closeSidebar = () => $mdSidenav('left').close();
       this.editItem = (item) => {
         this.item = item;
         this.openSidebar();
