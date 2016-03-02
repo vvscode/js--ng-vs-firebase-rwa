@@ -3,7 +3,7 @@
 
   angular
     .module('rw')
-    .controller('RwCtrl', function(rwFactory, $mdSidenav, $mdToast, $mdDialog) {
+    .controller('RwCtrl', function(rwFactory, $mdSidenav, $mdToast, $mdDialog, $state) {
       function getCategories(items) {
         return _.uniq(_.flatten(items.map((item) => item.categories)));
       }
@@ -13,7 +13,7 @@
         this.categories = getCategories(this.items);
       });
 
-      this.openSidebar = () => $mdSidenav('left').open();
+      this.openSidebar = () => $state.go('items.new');
       this.closeSidebar = () => $mdSidenav('left').close();
       this.editItem = (item) => {
         this.item = item;

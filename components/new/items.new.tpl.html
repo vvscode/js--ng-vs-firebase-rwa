@@ -1,0 +1,28 @@
+<md-sidenav class="md-sidenav-left  md-whiteframe-z2" md-component-id="left" md-is-locked-open="false">
+  <md-toolbar><h1 class="md-toolbar-tools">Add an Item</h1></md-toolbar>
+  <md-content layout-padding>
+    <form>
+      <md-input-container class="layout-fill">
+        <label for="title">Title</label>
+        <input type="text" id="title" ng-model="newRwCtrl.item.title" md-autofocus>
+      </md-input-container>
+      <md-input-container class="layout-fill">
+        <label for="title">Price</label>
+        <input type="text" id="price" ng-model="newRwCtrl.item.price">
+      </md-input-container>
+      <md-input-container class="layout-fill">
+        <label for="title">Description</label>
+                    <textarea type="text" id="description" ng-model="newRwCtrl.item.description">
+                    </textarea>
+      </md-input-container>
+      <md-input-container class="layout-fill">
+        <label for="title">Image Link</label>
+        <input type="text" id="image" ng-model="newRwCtrl.item.img">
+      </md-input-container>
+      <md-button ng-if="!newRwCtrl.editing" class="md-primary" ng-click="newRwCtrl.saveItem(newRwCtrl.item)">Save</md-button>
+      <md-button ng-click="newRwCtrl.saveEdit()" ng-if="newRwCtrl.editing" class="md-primary">Save Edit</md-button>
+      <md-button class="md-warn" ng-click="newRwCtrl.closeSidebar()">Cancel</md-button>
+      <pre>{{ newRwCtrl.item | json }}</pre>
+    </form>
+  </md-content>
+</md-sidenav>
