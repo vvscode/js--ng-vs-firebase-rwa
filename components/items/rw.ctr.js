@@ -3,7 +3,7 @@
 
   angular
     .module('rw')
-    .controller('RwCtrl', function(rwFactory, $mdSidenav, $mdToast, $mdDialog, $state) {
+    .controller('RwCtrl', function($scope, rwFactory, $mdSidenav, $mdToast, $mdDialog, $state) {
       function getCategories(items) {
         return _.uniq(_.flatten(items.map((item) => item.categories)));
       }
@@ -29,17 +29,19 @@
           this.items = this.items.filter((item) => item !== itemToRemove);
         });
       };
-      this.saveItem = (item) => {
+
+      $scope.$on('addNewItem', (ev, item) => {
         this.items.push(item);
-        this.item = {};
-        this.closeSidebar();
+        $scope.$broadcast('clearItem');
+        $scope.$broadcast('closeSidebar');
         $mdToast.show(
           $mdToast.simple()
             .content('Item saved')
             .position('top, right')
             .hideDelay(3000)
         );
-      };
+      });
+
       this.saveEdit = () => {
         this.item = {};
         this.closeSidebar();
