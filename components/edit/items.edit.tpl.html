@@ -19,8 +19,7 @@
         <label for="title">Image Link</label>
         <input type="text" id="image" ng-model="editRwCtrl.item.img">
       </md-input-container>
-      <md-button ng-if="!editRwCtrl.editing" class="md-primary" ng-click="editRwCtrl.saveItem(editRwCtrl.item)">Save</md-button>
-      <md-button ng-click="editRwCtrl.saveEdit()" ng-if="editRwCtrl.editing" class="md-primary">Save Edit</md-button>
+      <md-button ng-click="editRwCtrl.saveEdit(editRwCtrl.item)" class="md-primary">Save Edit</md-button>
       <md-button class="md-warn" ng-click="editRwCtrl.closeSidebar()">Cancel</md-button>
       <pre>{{ editRwCtrl.item | json }}</pre>
     </form>

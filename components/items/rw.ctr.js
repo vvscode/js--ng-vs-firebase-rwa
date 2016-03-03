@@ -33,8 +33,20 @@
       };
 
       $scope.$on('addNewItem', (ev, item) => {
+        // add logic to save data on server
         item.id = (Math.max.apply(Math, this.items.map(item => item.id)) || 0) + 1;
         this.items.push(item);
+        $scope.$broadcast('clearItem');
+        $scope.$broadcast('closeSidebar');
+        $mdToast.show(
+          $mdToast.simple()
+            .content('Item saved')
+            .position('top, right')
+            .hideDelay(3000)
+        );
+      });
+      $scope.$on('saveEditItem', (ev, item) => {
+        // add logic to save data on server
         $scope.$broadcast('clearItem');
         $scope.$broadcast('closeSidebar');
         $mdToast.show(

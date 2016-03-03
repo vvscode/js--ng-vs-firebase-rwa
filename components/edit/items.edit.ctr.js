@@ -6,7 +6,7 @@
       var editRwCtrl = this;
       this.item = $state.params.item;
       this.closeSidebar = () => this.isOpen = false;
-      this.saveItem = () => $scope.$emit('addNewItem', this.item);
+      this.saveEdit = (item) => $scope.$emit('saveEditItem', item);
 
       $timeout(() => $mdSidenav('left').open());
 
