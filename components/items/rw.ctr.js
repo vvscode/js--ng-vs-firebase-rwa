@@ -15,8 +15,10 @@
 
       this.openSidebar = () => $state.go('items.new');
       this.editItem = (item) => {
-        this.item = item;
-        this.openSidebar();
+        $state.go('items.edit', {
+          id: item.id,
+          item
+        });
       };
       this.removeItem = (event, itemToRemove) => {
         var confirm = $mdDialog.confirm()
@@ -31,6 +33,7 @@
       };
 
       $scope.$on('addNewItem', (ev, item) => {
+        item.id = (Math.max.apply(Math, this.items.map(item => item.id)) || 0) + 1;
         this.items.push(item);
         $scope.$broadcast('clearItem');
         $scope.$broadcast('closeSidebar');

@@ -19,9 +19,12 @@ angular
         controller: 'NewRwCtrl as newRwCtrl',
       })
       .state('items.edit', {
-        url: '/edit',
-        templateUrl: 'components/items/items.tpl.html',
-        controller: 'RwCtrl as rwCtrl',
+        url: '/edit/:id',
+        templateUrl: 'components/edit/items.edit.tpl.html',
+        controller: 'EditRwCtrl as editRwCtrl',
+        params: {
+          item: null
+        }
       })
   })
   .directive('helloWorld', function() {
