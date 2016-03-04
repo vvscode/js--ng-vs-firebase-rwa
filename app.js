@@ -22,24 +22,6 @@ angular
         url: '/edit/:id',
         templateUrl: 'components/edit/items.edit.tpl.html',
         controller: 'EditRwCtrl as editRwCtrl',
-        params: {
-          item: null
-        },
-        resolve:{
-          item: function($stateParams, rwFactory){
-            if($stateParams.item) {
-              return $stateParams.item;
-            }
-            return rwFactory.getItems().then((data) => {
-              var item = data.data.find((item) => item.id == $stateParams.id);
-              if(item) {
-                return item;
-              }
-
-              throw 'Not found';
-            });
-          }
-        }
       })
   })
   .directive('helloWorld', function() {

@@ -2,13 +2,14 @@
   'use strict';
 
   angular.module('rw')
-    .controller('EditRwCtrl', function($scope, $mdSidenav, $mdToast, $mdDialog, $timeout, $state, item) {
+    .controller('EditRwCtrl', function($scope, $mdSidenav, $mdToast, $mdDialog, $timeout, $state, rwFactory) {
       var editRwCtrl = this;
-      this.item = item || $state.params.item;
+      rwFactory.getItem($state.params.id).then((item) => {
+        this.item = item;
+        $timeout(() => $mdSidenav('left').open());
+      });
       this.closeSidebar = () => this.isOpen = false;
       this.saveEdit = (item) => $scope.$emit('saveEditItem', item);
-
-      $timeout(() => $mdSidenav('left').open());
 
       $scope.$on('clearItem', () => this.item = {});
       $scope.$on('closeSidebar', () => this.closeSidebar());

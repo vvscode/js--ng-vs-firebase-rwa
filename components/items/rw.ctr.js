@@ -16,8 +16,7 @@
       this.openSidebar = () => $state.go('items.new');
       this.editItem = (item) => {
         $state.go('items.edit', {
-          id: item.id,
-          item
+          id: item.id
         });
       };
       this.removeItem = (event, itemToRemove) => {

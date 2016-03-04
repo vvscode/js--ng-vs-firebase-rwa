@@ -8,8 +8,13 @@
         return $http.get('/data/rw.json');
       }
 
+      function getItem(itemId) {
+        return getItems().then((data) => data.data.find((item) => item.id == itemId));
+      }
+
       return {
-        getItems: getItems
+        getItems: getItems,
+        getItem: getItem
       }
     });
 
