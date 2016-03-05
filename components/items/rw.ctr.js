@@ -14,7 +14,7 @@
       this.openSidebar = () => $state.go('items.new');
       this.editItem = (item) => {
         $state.go('items.edit', {
-          id: item.id
+          id: item.$id
         });
       };
       this.removeItem = (event, itemToRemove) => {
@@ -42,6 +42,7 @@
       });
       $scope.$on('saveEditItem', (ev, item) => {
         // add logic to save data on server
+        this.items.$save(item);
         $scope.$broadcast('clearItem');
         $scope.$broadcast('closeSidebar');
         $mdToast.show(

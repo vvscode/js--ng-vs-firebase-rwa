@@ -4,14 +4,18 @@
   angular
     .module('rw')
     .factory('rwFactory', function($http, $firebaseArray) {
-      var ref = new Firebase('https://ngrwa.firebaseio.com/');
+      var fireBaseConnection = new Firebase('https://ngrwa.firebaseio.com/');
+      var ref = $firebaseArray(fireBaseConnection);
+
       function getItems() {
-        // return $http.get('/data/rw.json');
         return ref;
       }
 
       function getItem(itemId) {
-        return getItems().find((item) => item.id == itemId);
+        // Still use promises to provide ability use refresh at edit state
+        // At the moment data not loaded yep, so $getRecord return null
+        // So we wait while data will be loaded and then return item
+        return ref.$loaded().then(() => ref.$getRecord(itemId));
       }
 
       function loadInitialData() {
@@ -109,7 +113,7 @@
       return {
         getItems,
         getItem,
-        ref: $firebaseArray(ref),
+        ref: ref,
         loadInitialData
       }
     });
