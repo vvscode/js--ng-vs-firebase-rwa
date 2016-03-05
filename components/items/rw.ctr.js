@@ -30,9 +30,7 @@
       };
 
       $scope.$on('addNewItem', (ev, item) => {
-        // add logic to save data on server
-        item.id = (Math.max.apply(Math, this.items.map(item => item.id)) || 0) + 1;
-        this.items.push(item);
+        this.items.$add(item);
         $scope.$broadcast('clearItem');
         $scope.$broadcast('closeSidebar');
         $mdToast.show(
