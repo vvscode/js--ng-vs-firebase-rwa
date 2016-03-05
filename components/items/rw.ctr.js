@@ -25,7 +25,7 @@
           .targetEvent(event);
 
         $mdDialog.show(confirm).then(() => {
-          this.items = this.items.filter((item) => item !== itemToRemove);
+          this.items.$remove(itemToRemove);
         });
       };
 
