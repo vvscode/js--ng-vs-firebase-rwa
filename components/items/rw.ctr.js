@@ -9,7 +9,7 @@
       }
 
       this.items = rwFactory.ref;
-      this.categories = getCategories(this.items);
+      this.items.$loaded().then((items) => this.categories = getCategories(items));
 
       this.openSidebar = () => $state.go('items.new');
       this.editItem = (item) => {
