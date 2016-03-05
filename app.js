@@ -1,5 +1,5 @@
 angular
-  .module('rw', ['ngMaterial', 'ui.router'])
+  .module('rw', ['ngMaterial', 'ui.router', 'firebase'])
   .config(function($mdThemingProvider, $stateProvider) {
 
     $mdThemingProvider

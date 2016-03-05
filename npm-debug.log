@@ -1,0 +1,66 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'https://cdn.firebase.com/js/client/2.4.1/firebase.js',
+1 verbose cli   '-S' ]
+2 info using npm@2.14.3
+3 info using node@v4.1.0
+4 verbose install initial load of /Users/vvs/repo/js--ng-vs-firebase-rwa/package.json
+5 warn package.json js--ng-vs-firebase-rwa@1.0.0 No description
+6 warn package.json js--ng-vs-firebase-rwa@1.0.0 No README data
+7 verbose installManyTop reading scoped package data from /Users/vvs/repo/js--ng-vs-firebase-rwa/node_modules/angular/package.json
+8 verbose installManyTop reading scoped package data from /Users/vvs/repo/js--ng-vs-firebase-rwa/node_modules/angular-animate/package.json
+9 verbose installManyTop reading scoped package data from /Users/vvs/repo/js--ng-vs-firebase-rwa/node_modules/angular-aria/package.json
+10 verbose installManyTop reading scoped package data from /Users/vvs/repo/js--ng-vs-firebase-rwa/node_modules/angular-material/package.json
+11 verbose installManyTop reading scoped package data from /Users/vvs/repo/js--ng-vs-firebase-rwa/node_modules/angular-ui-router/package.json
+12 verbose installManyTop reading scoped package data from /Users/vvs/repo/js--ng-vs-firebase-rwa/node_modules/angularfire/package.json
+13 verbose installManyTop reading scoped package data from /Users/vvs/repo/js--ng-vs-firebase-rwa/node_modules/lodash/package.json
+14 verbose installManyTop reading scoped package data from /Users/vvs/repo/js--ng-vs-firebase-rwa/node_modules/mdi/package.json
+15 info package.json angular-material@1.0.5 No license field.
+16 info package.json mdi@1.4.57 No license field.
+17 verbose readDependencies loading dependencies from /Users/vvs/repo/js--ng-vs-firebase-rwa/package.json
+18 silly cache add args [ 'https://cdn.firebase.com/js/client/2.4.1/firebase.js', null ]
+19 verbose cache add spec https://cdn.firebase.com/js/client/2.4.1/firebase.js
+20 silly cache add parsed spec Result {
+20 silly cache add   raw: 'https://cdn.firebase.com/js/client/2.4.1/firebase.js',
+20 silly cache add   scope: null,
+20 silly cache add   name: null,
+20 silly cache add   rawSpec: 'https://cdn.firebase.com/js/client/2.4.1/firebase.js',
+20 silly cache add   spec: 'https://cdn.firebase.com/js/client/2.4.1/firebase.js',
+20 silly cache add   type: 'remote' }
+21 silly mapToRegistry name https://cdn.firebase.com/js/client/2.4.1/firebase.js
+22 silly mapToRegistry using default registry
+23 silly mapToRegistry registry http://registry.npmjs.org/
+24 silly mapToRegistry uri https://cdn.firebase.com/js/client/2.4.1/firebase.js
+25 verbose addRemoteTarball https://cdn.firebase.com/js/client/2.4.1/firebase.js not in flight; adding
+26 verbose addRemoteTarball [ 'https://cdn.firebase.com/js/client/2.4.1/firebase.js', null ]
+27 info retry fetch attempt 1 at 23:09:54
+28 info attempt registry request try #1 at 23:09:54
+29 http fetch GET https://cdn.firebase.com/js/client/2.4.1/firebase.js
+30 verbose request id 4e4a31c9d9e34ee9
+31 http fetch 200 https://cdn.firebase.com/js/client/2.4.1/firebase.js
+32 silly fetchAndShaCheck shasum 60e45b5b8467a5e5f8f841b890b9a599fb6ca86f
+33 verbose addTmpTarball /var/folders/1t/cfsqwfx97kdf8nz754r76tdh0000gn/T/npm-80411-727ec072/cdn.firebase.com/js/client/2.4.1/firebase.js not in flight; adding
+34 verbose addTmpTarball validating metadata from /var/folders/1t/cfsqwfx97kdf8nz754r76tdh0000gn/T/npm-80411-727ec072/cdn.firebase.com/js/client/2.4.1/firebase.js
+35 verbose tar unpack /var/folders/1t/cfsqwfx97kdf8nz754r76tdh0000gn/T/npm-80411-727ec072/cdn.firebase.com/js/client/2.4.1/firebase.js
+36 verbose tar unpacking to /var/folders/1t/cfsqwfx97kdf8nz754r76tdh0000gn/T/npm-80411-727ec072/unpack-6cd80faf3941
+37 silly gentlyRm /var/folders/1t/cfsqwfx97kdf8nz754r76tdh0000gn/T/npm-80411-727ec072/unpack-6cd80faf3941 is being purged
+38 verbose gentlyRm don't care about contents; nuking /var/folders/1t/cfsqwfx97kdf8nz754r76tdh0000gn/T/npm-80411-727ec072/unpack-6cd80faf3941
+39 silly gunzTarPerm modes [ '755', '644' ]
+40 error not a package /var/folders/1t/cfsqwfx97kdf8nz754r76tdh0000gn/T/npm-80411-727ec072/cdn.firebase.com/js/client/2.4.1/firebase.js
+41 verbose stack Error: ENOENT: no such file or directory, open '/var/folders/1t/cfsqwfx97kdf8nz754r76tdh0000gn/T/npm-80411-727ec072/unpack-6cd80faf3941/package.json'
+41 verbose stack     at Error (native)
+42 verbose cwd /Users/vvs/repo/js--ng-vs-firebase-rwa
+43 error Darwin 14.5.0
+44 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "https://cdn.firebase.com/js/client/2.4.1/firebase.js" "-S"
+45 error node v4.1.0
+46 error npm  v2.14.3
+47 error path /var/folders/1t/cfsqwfx97kdf8nz754r76tdh0000gn/T/npm-80411-727ec072/unpack-6cd80faf3941/package.json
+48 error code ENOENT
+49 error errno -2
+50 error syscall open
+51 error enoent ENOENT: no such file or directory, open '/var/folders/1t/cfsqwfx97kdf8nz754r76tdh0000gn/T/npm-80411-727ec072/unpack-6cd80faf3941/package.json'
+51 error enoent This is most likely not a problem with npm itself
+51 error enoent and is related to npm not being able to find a file.
+52 verbose exit [ -2, true ]

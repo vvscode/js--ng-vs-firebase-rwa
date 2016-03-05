@@ -8,10 +8,8 @@
         return _.uniq(_.flatten(items.map((item) => item.categories)));
       }
 
-      rwFactory.getItems().then((data) => {
-        this.items = data.data || [];
-        this.categories = getCategories(this.items);
-      });
+      this.items = rwFactory.ref;
+      this.categories = getCategories(this.items);
 
       this.openSidebar = () => $state.go('items.new');
       this.editItem = (item) => {
@@ -71,6 +69,6 @@
         this.category = '';
         this.searchTerm = '';
         this.showFilters = false;
-      }
+      };
     });
 })();
