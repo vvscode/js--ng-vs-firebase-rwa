@@ -1,0 +1,36 @@
+<img ng-src="{{ item.img }}" alt="{{ item.title }}"/>
+<md-card-content>
+  <div class="rw-info" ng-show="!showContact">
+    <h2 class="md-title">{{ item.title | uppercase }}</h2>
+    <h2>{{ item.posted | date:'longDate' }}</h2>
+    <h3>{{ item.price | currency }}</h3>
+    <p>{{ item.description }}</p>
+  </div>
+  <div class="rw-contact" ng-show="showContact">
+    <p>
+      <md-icon class="mdi mdi-account"></md-icon>
+      {{ item.contact.name }}
+    </p>
+    <p>
+      <md-icon class="mdi mdi-phone"></md-icon>
+      {{ item.contact.phone }}
+    </p>
+    <p>
+      <md-icon class="mdi mdi-email"></md-icon>
+      {{ item.contact.email }}
+    </p>
+  </div>
+  <div layout="row">
+    <md-button ng-click="showContact = true" ng-show="!showAdmin && !showContact">Contact</md-button>
+    <md-button ng-click="showContact = false" ng-show="!showAdmin && showContact">Details</md-button>
+    <md-button ng-click="showAdmin = true" ng-show="!showAdmin">Admin</md-button>
+    <md-button ng-click="showAdmin = false" ng-show="showAdmin">Close</md-button>
+  </div>
+  <div class="rw-admin" ng-if="showAdmin">
+    <h3>Admin</h3>
+    <div layout="row">
+      <md-button ng-click="rwCtrl.editItem(item)" class="md-primary">Edit</md-button>
+      <md-button ng-click="rwCtrl.removeItem($event, item)" class="md-warn">Delete</md-button>
+    </div>
+  </div>
+</md-card-content>
