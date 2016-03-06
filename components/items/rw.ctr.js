@@ -7,67 +7,40 @@
       function getCategories(items) {
         return _.uniq(_.flatten(items.map((item) => item.categories)));
       }
+      function showToast(text) {
+        return $mdToast.show(
+          $mdToast.simple()
+            .content(text)
+            .position('top, right')
+            .hideDelay(3000)
+        );
+      }
 
       this.items = rwFactory.ref;
       this.items.$loaded().then((items) => this.categories = getCategories(items));
 
       this.openSidebar = () => $state.go('items.new');
-      this.editItem = (item) => {
-        $state.go('items.edit', {
-          id: item.$id
-        });
-      };
-      this.removeItem = (event, itemToRemove) => {
-        var confirm = $mdDialog.confirm()
-          .title(`Are you sure you wnat to delete "${itemToRemove.tile}"?`)
-          .ok('Yes')
-          .cancel('No')
-          .targetEvent(event);
-
-        $mdDialog.show(confirm).then(() => {
-          this.items.$remove(itemToRemove);
-        });
+      this.clearFilters = () => {
+        this.category = '';
+        this.searchTerm = '';
+        this.showFilters = false;
       };
 
       $scope.$on('addNewItem', (ev, item) => {
         this.items.$add(item);
         $scope.$broadcast('clearItem');
         $scope.$broadcast('closeSidebar');
-        $mdToast.show(
-          $mdToast.simple()
-            .content('Item saved')
-            .position('top, right')
-            .hideDelay(3000)
-        );
+        showToast('Item added');
       });
       $scope.$on('saveEditItem', (ev, item) => {
-        // add logic to save data on server
         this.items.$save(item);
         $scope.$broadcast('clearItem');
         $scope.$broadcast('closeSidebar');
-        $mdToast.show(
-          $mdToast.simple()
-            .content('Item saved')
-            .position('top, right')
-            .hideDelay(3000)
-        );
+        showToast('Item saved');
       });
-
-      this.saveEdit = () => {
-        this.item = {};
-        this.closeSidebar();
-        $mdToast.show(
-          $mdToast.simple()
-            .content('Item saved')
-            .position('top, right')
-            .hideDelay(3000)
-        );
-      };
-
-      this.clearFilters = () => {
-        this.category = '';
-        this.searchTerm = '';
-        this.showFilters = false;
-      };
+      $scope.$on('removeItem', (ev, item) => {
+        this.items.$remove(item);
+        showToast('Item removed');
+      });
     });
 })();
